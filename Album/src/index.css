@@ -1,0 +1,26 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import "tailwindcss"; */
+
+
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+/* .backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+} */
+
+.backdrop-blur-md {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
