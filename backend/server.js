@@ -7,6 +7,10 @@ const authRoutes = require("./routes/auth");
 const chitRoutes = require("./routes/chitRoutes");
 const leadRoutes = require("./routes/leadRoutes");
 
+// ✅ 1. IMPORT THE NEW ROUTES
+const posterRoutes = require("./routes/posterRoutes");
+const brochureRoutes = require("./routes/brochureRoutes");
+
 const app = express();
 
 app.use(cors());
@@ -15,12 +19,19 @@ app.use(express.json());
 // Serve uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-mongoose.connect("mongodb://127.0.0.1:27017/sanjay");
+// mongoose.connect("mongodb://127.0.0.1:27017/sanjay");
+mongoose.connect("mongodb://127.0.0.1:27017/album")
+.then(()=>console.log("MongoDB Connected"))
+.catch(err=>console.log(err));
 
 // ROUTES
 app.use("/api/auth", authRoutes);
 app.use("/api/chitgroup", chitRoutes);
-app.use("/api/leads", leadRoutes);   // ✅ ONLY THIS
+app.use("/api/leads", leadRoutes);
+
+// ✅ 2. USE THE NEW ROUTES
+app.use("/api/posters", posterRoutes);
+app.use("/api/brochures", brochureRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
