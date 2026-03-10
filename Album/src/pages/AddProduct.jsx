@@ -412,7 +412,7 @@ export default function AddProduct() {
                                             ) : (
                                                 // Poster / Brochure View
                                                 <>
-                                                    <h3 className="text-xl font-bold text-gray-900">{p.title || "Untitled"}</h3>
+                                                      <h3 className="text-xl font-bold text-gray-900">{p.title || "Untitled"}</h3>
                                                     <p className="mt-2 text-sm text-gray-600 line-clamp-3">{p.description}</p>
                                                     <div className="mt-auto pt-4">
                                                         <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">

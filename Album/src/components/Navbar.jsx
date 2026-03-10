@@ -206,6 +206,16 @@ export default function Navbar() {
                                 </Link>
                             </li>
 
+ {/* <li>
+                                <Link 
+                                    to="/chitbrochure" 
+                                    className={`px-4 py-2.5 rounded-lg transition-colors ${isActive("/chitbrochure")}`}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Brochure
+                                </Link>
+                            </li> */}
+
                             <li>
                                 <button
                                     onClick={() => scrollToSection("contact")}
