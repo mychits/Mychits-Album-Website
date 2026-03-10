@@ -1,121 +1,10 @@
-
-
-// import { Link } from "react-router-dom";
-// import { ArrowRight } from "lucide-react";
-// import React from "react";
-
-// export default function Hero() {
-//   return (
-//     <section
-//       id="home"
-//       className="relative overflow-hidden py-32 px-6 text-white 
-//       bg-gradient-to-br from-[#0b1020] via-[#0f172a] to-[#020617]"
-//     >
-//          {/* bg-gradient-to-br from-[#0b1020] via-[#0f172a] to-[#020617]" */}
-//       {/* Background blobs */}
-//       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-600 blur-[120px] rounded-full" />
-//       <div className="absolute top-40 -right-40 w-[500px] h-[500px] bg-yellow-400/20 blur-[120px] rounded-full" />
-
-//       <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
-
-//         {/* ---------------- LEFT SIDE ---------------- */}
-//         <div>
-//           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
-//             Smart Savings,
-//             <br />
-//             <span className="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent drop-shadow">
-//               Secure Growth.
-//             </span>
-//           </h1>
-
-//           <p className="mt-6 text-lg text-slate-300 max-w-lg leading-relaxed">
-//             Welcome to <span className="text-white font-semibold">MyChits</span>.
-//             Traditional trust powered by modern technology —
-//             built to secure your financial future.
-//           </p>
-
-//           {/* CTA */}
-//   <div className="mt-10 flex flex-wrap gap-4">
-//     <Link
-//       to="/chitgallery"
-//       className="group relative inline-flex items-center gap-2 
-//       px-8 py-4 rounded-xl font-semibold
-//       bg-emerald-500/90 hover:bg-emerald-500
-//       shadow-lg shadow-emerald-500/30
-//       transition-all"
-//     >
-//       View Schemes
-//       <ArrowRight
-//         size={20}
-//         className="group-hover:translate-x-1 transition-transform"
-//       />
-//     </Link>
-
-//     {/* Ghost Button */}
-//     <Link
-//       to="/#contact"
-//       className="px-8 py-4 rounded-xl font-semibold
-//       border border-white/30 text-white
-//       hover:bg-white/10 transition-all"
-//     >
-//       Contact Us
-//     </Link>
-//   </div>
-
-//           {/* ---------------- BENTO GRID ---------------- */}
-//           <div className="mt-14 grid grid-cols-2 gap-4 max-w-md">
-//             <div className="col-span-2 rounded-2xl p-5 
-//               bg-white/5 backdrop-blur-md border border-white/10
-//               hover:-translate-y-1 transition">
-//               💰 <span className="ml-2 font-semibold">Secure Chit Savings</span>
-//             </div>
-
-//             <div className="rounded-2xl p-5 
-//               bg-white/5 backdrop-blur-md border border-white/10
-//               hover:-translate-y-1 transition">
-//               🏠 <span className="block mt-2 font-semibold">Home Goals</span>
-//             </div>
-
-//             <div className="rounded-2xl p-5 
-//               bg-white/5 backdrop-blur-md border border-white/10
-//               hover:-translate-y-1 transition">
-//               🚗 <span className="block mt-2 font-semibold">Vehicle Plans</span>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* ---------------- RIGHT SIDE ---------------- */}
-//         <div className="hidden md:flex justify-center relative">
-
-//           {/* Glow ring */}
-//           <div className="absolute w-[380px] h-[380px] rounded-full 
-//             bg-gradient-to-tr from-emerald-400/30 to-yellow-400/30 
-//             blur-3xl animate-pulse" />
-
-//           {/* Image */}
-//           <div className="relative rounded-3xl p-4
-//             bg-white/5 backdrop-blur-xl border border-white/10">
-//             <img
-//               src="/am.png"
-//               alt="MyChits Preview"
-//               className="w-[420px] object-contain"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Layers, Image, FileText } from "lucide-react"; // Added new icons
 
 /* SLIDER IMAGES */
 const sliderImages = [
-    "/hero1.png",
+  "/hero1.png",
   "/COIN.png",
   "/hero2.png",
   "/am.png",
@@ -128,7 +17,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % sliderImages.length);
-    }, 3000); // 3 seconds
+    }, 3500); // Slightly slower for better view
 
     return () => clearInterval(interval);
   }, []);
@@ -136,101 +25,139 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden
-      bg-gradient-to-br from-[#1e293b] via-[#334155] to-[#0f172a] text-white"
+      bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"
     >
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+      {/* --- DECORATIVE BACKGROUND ELEMENTS --- */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      </div>
 
+      <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center py-20 z-10">
+        
         {/* ================= LEFT CONTENT ================= */}
         <div>
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            <span className="text-orange-400">Smart Savings,</span>
+          {/* Small Tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 text-sm font-medium text-cyan-300">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+            Digital Album Platform
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
+            Showcase Your
             <br />
-            <span className="text-green-400">Secure Future.</span>
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Collections.
+            </span>
           </h1>
 
-          <p className="mt-6 text-gray-200 max-w-lg leading-relaxed">
-            Welcome to MyChits, synergy of traditional financial wisdom and
-            cutting-edge digital platforms, tailored for ambitious growth.
+          <p className="mt-6 text-gray-300 max-w-lg leading-relaxed text-lg">
+            Welcome to <span className="text-white font-bold">MyChits Album</span>. 
+            A centralized gallery to display your Schemes, Posters, and Brochures in a beautiful, organized layout.
           </p>
 
-          {/* BUTTONS */}
+          {/* MAIN CTA */}
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               to="/chitgallery"
-              className="group inline-flex items-center gap-2
-              px-8 py-4 rounded-xl font-semibold
-              bg-emerald-500 hover:bg-emerald-600
-              shadow-lg shadow-emerald-500/30 transition"
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold
+              bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600
+              shadow-lg shadow-cyan-500/30 transition-all duration-300"
             >
-              View Schemes
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-
-            <Link
-              to="/#contact"
-              className="px-8 py-4 rounded-xl font-semibold
-              border border-white/30 hover:bg-white/10 transition"
-            >
-              Contact Us
+              Explore Gallery
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* INFO CARDS */}
-          <div className="mt-14 grid grid-cols-2 gap-4 max-w-xl">
-            {/* 1 */}
-            <Link
-              to="/chits/chit-pro"
-              className="col-span-2 flex items-center justify-between
-              rounded-2xl p-5
-              bg-white/5 backdrop-blur-md border border-white/10
-              hover:bg-white/10 hover:-translate-y-1 transition"
+          {/* --- CATEGORY CARDS (Linked to your routes) --- */}
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            
+            {/* Schemes Card */}
+            <Link 
+              to="/chitgallery"
+              className="group flex flex-col gap-2 p-5 rounded-2xl 
+              bg-white/5 backdrop-blur-md border border-white/10 
+              hover:bg-white/10 hover:border-cyan-500/50 transition-all cursor-pointer"
             >
-              <span className="flex items-center gap-2 font-semibold">
-                💰 Secure Chit Savings
-              </span>
-              <ArrowRight size={20} />
+              <Layers className="text-cyan-400" size={24} />
+              <h3 className="font-bold text-white">Schemes</h3>
+              <p className="text-xs text-gray-400">View Chit Plans</p>
             </Link>
 
-            {/* 2 */}
-            <div
-              className="rounded-2xl p-5
-              bg-white/5 backdrop-blur-md border border-white/10
-              hover:-translate-y-1 transition"
+            {/* Posters Card */}
+            <Link 
+              to="/chitposter"
+              className="group flex flex-col gap-2 p-5 rounded-2xl 
+              bg-white/5 backdrop-blur-md border border-white/10 
+              hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-pointer"
             >
-              🏠 <span className="block mt-2 font-semibold">Home Goals</span>
-            </div>
+              <Image className="text-purple-400" size={24} />
+              <h3 className="font-bold text-white">Posters</h3>
+              <p className="text-xs text-gray-400">Promotional Art</p>
+            </Link>
 
-            {/* 3 */}
-            <div
-              className="rounded-2xl p-5
-              bg-white/5 backdrop-blur-md border border-white/10
-              hover:-translate-y-1 transition"
+            {/* Brochures Card */}
+            <Link 
+              to="/brochures" // Ensure you have this route or change it
+              className="group flex flex-col gap-2 p-5 rounded-2xl 
+              bg-white/5 backdrop-blur-md border border-white/10 
+              hover:bg-white/10 hover:border-orange-500/50 transition-all cursor-pointer"
             >
-              🚗 <span className="block mt-2 font-semibold">Vehicle Plans</span>
-            </div>
+              <FileText className="text-orange-400" size={24} />
+              <h3 className="font-bold text-white">Brochures</h3>
+              <p className="text-xs text-gray-400">Digital Docs</p>
+            </Link>
+
           </div>
         </div>
 
-        {/* ================= RIGHT IMAGE SLIDER ================= */}
-        <div className="hidden md:flex justify-center">
-          <div
-            className="relative w-[420px] h-[420px] rounded-3xl p-6
-            bg-white/5 backdrop-blur-xl border border-white/10
-            flex items-center justify-center overflow-hidden"
+        {/* ================= RIGHT IMAGE SLIDER (Album Frame) ================= */}
+        <div className="hidden md:flex justify-center items-center relative">
+          
+          {/* Background Glow behind frame */}
+          <div className="absolute w-80 h-80 bg-blue-500 rounded-full blur-[100px] opacity-30"></div>
+          
+          {/* Main Frame Container */}
+          <div className="relative w-[420px] h-[500px] rounded-3xl 
+            bg-white/10 backdrop-blur-xl border border-white/20 p-4 
+            shadow-2xl transform hover:rotate-1 transition-all duration-500"
           >
-            {sliderImages.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt="MyChits Slide"
-                className={`absolute w-full object-contain
-                transition-opacity duration-700 ease-in-out
-                ${index === current ? "opacity-100" : "opacity-0"}`}
-              />
-            ))}
+            {/* Top Bar (Window Style) */}
+            <div className="flex items-center gap-2 mb-4 px-2">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="flex-1 text-center text-xs text-gray-400 font-mono">mychits_album.img</div>
+            </div>
+
+            {/* Image Container */}
+            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden bg-black/20 border border-white/10">
+              {sliderImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt="Album Slide"
+                  className={`absolute w-full h-full object-cover 
+                  transition-all duration-700 ease-in-out
+                  ${index === current ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+                />
+              ))}
+            </div>
+            
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-2 mt-4">
+              {sliderImages.map((_, index) => (
+                <div 
+                  key={index} 
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer
+                  ${index === current ? "w-6 bg-white" : "w-2 bg-white/30 hover:bg-white/50"}`}
+                  onClick={() => setCurrent(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
 

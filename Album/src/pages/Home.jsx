@@ -4,7 +4,7 @@ import CTA from "../components/CTA";
 import AboutSection from "../components/AboutSection";
 import WhyChits from "../components/WhyChits";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
+
 
 export default function Home() {
 
@@ -16,7 +16,7 @@ export default function Home() {
       <AboutSection />   {/* 🔥 has id="about" */}
       <WhyChits />
       <Contact />
-      <Footer />
+ 
     </div>
   );
 }

@@ -13,7 +13,8 @@ import Chitsgallery from "./pages/Chits";
 import ChitCategoryPage from "./pages/ChitCategoryPage";
 import ChitSmart from "./pages/chits/ChitSmart";
 import ChitPro from "./pages/chits/ChitPro";
-import ChitSaver from "./pages/chits/ChitSaver"
+import ChitSaver from "./pages/chits/ChitSaver";
+import ChitPoster from "./pages/ChitPoster";
 
 export default function App() {
   // State exists here
@@ -36,6 +37,7 @@ export default function App() {
            <Route path="/chits/chit-smart" element={<ChitSmart />} />
            <Route path="/chits/chit-pro" element={<ChitPro />} />
             <Route path="/chits/chit-saver" element={<ChitSaver />} />
+            <Route path="/chitposter" element={<ChitPoster/>} />
          
         </Routes>
         

@@ -218,17 +218,12 @@ Check this scheme now 👇`;
         }
     };
 
-
-
-
-
-
     return (
-        <div className="min-h-screen bg-[#F3F3F3F] text-gray-100 pb-20">
+        <div className="min-h-screen bg-[#F3F3F3F] text-gray-100 pb-20  bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
 
             {/* BEHANCE-STYLE HEADER */}
             <div className="max-w-7xl mx-auto px-6 py-20 text-center">
-                <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 tracking-tighter">
+                <h1 className="text-5xl md:text-7xl font-extrabold text-blue-500 mb-4 tracking-tighter">
                     Chit <span className="text-blue-500">Gallery</span>
                 </h1>
                 <p className="text-gray-400 text-lg max-w-2xl mx-auto">
