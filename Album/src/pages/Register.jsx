@@ -1,7 +1,8 @@
 import api from "../api/axios";
 import { useState } from "react";
 import React from "react";
-import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import { useNavigate } from "react-router-dom"; 
+import registred from "../assets/images/registred.jpg";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -34,40 +35,58 @@ export default function Register() {
       setLoading(false);
     }
   };
+return (
+  <div
+    className="relative h-screen w-screen flex items-center justify-center bg-cover bg-center overflow-hidden"
+    style={{ backgroundImage: `url(${registred})` }}
+  >
+    {/* Dark Overlay */}
+    <div className="absolute inset-0 bg-black/40"></div>
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-md w-96"
+    {/* Register Card */}
+    <form
+      onSubmit={handleSubmit}
+      className="relative z-10 backdrop-blur-md bg-white/10 border border-white/20 p-8 rounded-xl shadow-lg w-96 text-white"
+    >
+      <h2 className="text-3xl font-bold mb-6 text-center">Create Account</h2>
+
+      <input
+        type="email"
+        placeholder="Email"
+        className="w-full mb-3 px-3 py-2 rounded bg-white/20 border border-white/30 placeholder-white text-white outline-none"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        className="w-full mb-4 px-3 py-2 rounded bg-white/20 border border-white/30 placeholder-white text-white outline-none"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-gradient-to-r from-blue-500 to-orange-400 text-white py-2 rounded-lg hover:opacity-90 transition disabled:opacity-50"
       >
-        <h2 className="text-xl font-bold mb-4 text-center">Register</h2>
+        {loading ? "Registering..." : "Register"}
+      </button>
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full mb-3 px-3 py-2 border rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full mb-4 px-3 py-2 border rounded"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-
-        <button
-          disabled={loading}
-          className="w-full bg-sky-600 text-white py-2 rounded hover:bg-sky-700 disabled:opacity-50"
+      {/* Login Redirect */}
+      <div className="mt-4 text-center text-sm">
+        <span className="text-gray-200">Already have an account? </span>
+        <span
+          onClick={() => navigate("/login")}
+          className="text-blue-300 font-bold cursor-pointer hover:underline"
         >
-          {loading ? "Registering..." : "Register"}
-        </button>
-      </form>
-    </div>
-  );
+          Login
+        </span>
+      </div>
+    </form>
+  </div>
+);
 }

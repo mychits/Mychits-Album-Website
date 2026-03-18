@@ -1,6 +1,7 @@
 import { CheckCircle, Shield, Users, TrendingUp, Smartphone, Landmark, Award } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import image from "../assets/images/Office.png";
 
 export default function AboutSection() {
   return (
@@ -78,7 +79,7 @@ export default function AboutSection() {
               <div className="w-full h-[350px] bg-slate-800 rounded-xl flex items-center justify-center overflow-hidden">
                 {/* Placeholder for actual office or app screenshot */}
                 <img 
-                   src="/about-office.jpg" // Replace with your actual image path
+                   src={image}
                    alt="Office" 
                    className="w-full h-full object-cover opacity-80"
                    onError={(e) => {
